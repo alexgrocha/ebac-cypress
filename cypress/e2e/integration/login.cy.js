@@ -1,11 +1,25 @@
+/* Automatizando login
+   teste no site: http://lojaebac.ebaconline.art.br/
+   user: aluno_ebac@teste.com
+   pass: teste@teste.com 
+
+   comando only para executar somente aquele teste
+*/ 
+
 /// <reference types="cypress" />
 
+//const { it } = require("mocha");
+//esta configuração é para utilizar o parametro que esta em outras pasta, login
+const perfil = require('../fixtures/perfil.json')
 
 describe('Funcionaliade Login', () => {
-    // diminuindo a quantiddade de repetições, memso link utilizado em dois lugares
+    // diminuindo a quantiddade de repetições, mesmo link utilizado em dois lugares
     // cenário ou rotina que roda antes de todos os cenários
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        //otimanzando o acesso para uma configuração global, 
+        //arquivo utilizado cypress.config.js
+        // pois é sempre o mesmo link para este teste http://lojaebac.ebaconline.art.br
+        cy.visit('minha-conta/')
     });
 
     afterEach(() => {
@@ -21,6 +35,34 @@ describe('Funcionaliade Login', () => {
         //após fazer o login, peguei um campo para validar o "acesso"
         cy.get('.page-title').should('contain', 'Minha conta')
     })
+
+    //usando o arquivo que esta no fixtures perfil.json
+    it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
+        cy.get('#username').type(perfil.usuario)
+        cy.get('#password').type(perfil.senha, {log: false})
+        cy.get('#rememberme').click()
+        cy.get('.woocommerce-form > .button').click()
+
+        //após fazer o login, peguei um campo para validar o "acesso"
+        cy.get('.page-title').should('contain', 'Minha conta')
+    });
+
+// TESTE NÃO ESTA FNCIONANDO! NÃO SEI PORQUE AINDA    
+/*
+    //outra forma de fazer login, utilizando a configuração do fixture
+    it.only('Deve fazer login com sucesso - Usando fixture', () => {
+        //para garantir o uso do parametro, esta sendo criado uma nova vairavel
+        cy.fixture('perfil.json').then(dados => {
+            cy.get('#username').type(dados.usuario)
+            cy.get('#password').type(dados.senha, {log: false})
+            cy.get('#rememberme').click()
+            cy.get('.woocommerce-form > .button').click()
+    
+            cy.get('.page-title').should('contain', 'Minha conta')
+        })
+            
+    });
+*/
     // obs: depois o comando it pode ser adicionado o .only isso ira fazer executar apenas aquele teste
     it('Deve exibir uma mensagem de erro ao inserir usuário inválidos!', () => {
         cy.get('#username').type('alex@teste.com')
@@ -41,7 +83,3 @@ describe('Funcionaliade Login', () => {
         cy.get('.woocommerce-error > li').should('contain', 'Erro: a senha fornecida para o e-mail')
     })
 })
-
-// teste no site: http://lojaebac.ebaconline.art.br/
-// user: aluno_ebac@teste.com
-// pass: teste@teste.com 

@@ -3,7 +3,7 @@
 describe('Teste de ponta a ponta em Saucelabs', () => {
     beforeEach( () => {
         // acessando o site, para o teste https://www.saucedemo.com/
-          cy.visit('/')
+          cy.visit('https://www.saucedemo.com/')
     })
 
     it('Deve fazer o pedido de ponta a ponta', () => {
