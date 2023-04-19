@@ -10,17 +10,27 @@
 //
 //
 
-// -- This is a parent command -- função customizado
-Cypress.Commands.add('login', (usuario, senha) => { 
+// -- This is a parent command -- função customizado, nome do metódo login
+// FORMA AUTOMATICA DE FAZER LOGIN 
+Cypress.Commands.add('login1', (usuario, senha) => {
+  // login e senha, botão login
+  cy.get('#username').type(usuario)
+  cy.get('#password').type(senha)
+  cy.get('.woocommerce-form > .button').click()
 
-    // login e senha, botão login
-    cy.get('[data-test="username"]').type(usuario)
-    cy.get('[data-test="password"]').type(senha)     
-    cy.get('[data-test="login-button"]').click()
-    // verificando elemento foto
-    cy.get('#item_3_img_link > .inventory_item_img').should('be.visible')
 
-  })
+})
+
+//OUTRA AUTOMATICA FORMA DE FAZER LOGIN 
+Cypress.Commands.add('login', (usuario, senha) => {
+  // login e senha, botão login
+  cy.get('[data-test="username"]').type(usuario)
+  cy.get('[data-test="password"]').type(senha)
+  cy.get('[data-test="login-button"]').click()
+  // verificando elemento foto
+  cy.get('#item_3_img_link > .inventory_item_img').should('be.visible')
+
+})
 
 Cypress.Commands.add('adicionarProduto', (produto) => {
 
@@ -30,17 +40,17 @@ Cypress.Commands.add('adicionarProduto', (produto) => {
   cy.get('.btn_primary').click()
   cy.get('[data-test="back-to-products"]').click()
 
-  })
+})
 
 Cypress.Commands.add('cadastroUsuario', (nome, sobrenome, cep) => {
-      // cadastro
-      cy.get('[data-test="firstName"]').type(nome)
-      cy.get('[data-test="lastName"]').type(sobrenome)
-      cy.get('[data-test="postalCode"]').type(cep)
-      cy.get('[data-test="continue"]').click()
-      cy.get('[data-test="finish"]').click()
+  // cadastro
+  cy.get('[data-test="firstName"]').type(nome)
+  cy.get('[data-test="lastName"]').type(sobrenome)
+  cy.get('[data-test="postalCode"]').type(cep)
+  cy.get('[data-test="continue"]').click()
+  cy.get('[data-test="finish"]').click()
 
-      })
+})
 
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

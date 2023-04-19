@@ -18,7 +18,6 @@ describe('Funcionalidade Pré Cadastro', () => {
         let sobrenomeFaker = faker.name.lastName(nomeFaker)
         let emailFaker = faker.internet.email()
 
-
         //primeira parte do cadastro, email,senha e botão cadastrar
         cy.get('#reg_email').type(emailFaker)
         cy.get('#reg_password').type(faker.internet.password())

@@ -8,10 +8,6 @@
 
 /// <reference types="cypress" />
 
-//const { it } = require("mocha");
-//esta configuração é para utilizar o parametro que esta em outras pasta, login
-const perfil = require('../fixtures/perfil.json')
-
 describe('Funcionaliade Login', () => {
     // diminuindo a quantiddade de repetições, mesmo link utilizado em dois lugares
     // cenário ou rotina que roda antes de todos os cenários
@@ -21,11 +17,11 @@ describe('Funcionaliade Login', () => {
         // pois é sempre o mesmo link para este teste http://lojaebac.ebaconline.art.br
         cy.visit('minha-conta/')
     });
-
-    afterEach(() => {
+    
+        afterEach(() => {
         cy.screenshot()
     });
-
+    
     it('Deve fazer login com sucesso', () => { 
         cy.get('#username').type('aluno_ebac@teste.com')
         cy.get('#password').type('teste@teste.com')
@@ -38,8 +34,8 @@ describe('Funcionaliade Login', () => {
 
     //usando o arquivo que esta no fixtures perfil.json
     it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
-        cy.get('#username').type(perfil.usuario)
-        cy.get('#password').type(perfil.senha, {log: false})
+        cy.get('#username').type('usuario')
+        cy.get('#password').type('senha', {log: false})
         cy.get('#rememberme').click()
         cy.get('.woocommerce-form > .button').click()
 
@@ -48,9 +44,9 @@ describe('Funcionaliade Login', () => {
     });
 
 // TESTE NÃO ESTA FNCIONANDO! NÃO SEI PORQUE AINDA    
-/*
+
     //outra forma de fazer login, utilizando a configuração do fixture
-    it.only('Deve fazer login com sucesso - Usando fixture', () => {
+    it('Deve fazer login com sucesso - Usando fixture', () => {
         //para garantir o uso do parametro, esta sendo criado uma nova vairavel
         cy.fixture('perfil.json').then(dados => {
             cy.get('#username').type(dados.usuario)
@@ -62,7 +58,7 @@ describe('Funcionaliade Login', () => {
         })
             
     });
-*/
+
     // obs: depois o comando it pode ser adicionado o .only isso ira fazer executar apenas aquele teste
     it('Deve exibir uma mensagem de erro ao inserir usuário inválidos!', () => {
         cy.get('#username').type('alex@teste.com')
