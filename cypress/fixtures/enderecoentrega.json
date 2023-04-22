@@ -1,0 +1,35 @@
+[
+    {
+        "nome":"Ana",
+        "sobrenome":"Silva", 
+        "empresa":"EBAC ME", 
+        "pais":"Brasil", 
+        "endereco":"Av. Paulista", 
+        "numero":"01", 
+        "cidade":"São Paulo", 
+        "estado":"São Paulo", 
+        "cep":"0000-0000"
+    },        
+    {
+        "nome":"Bruno",
+        "sobrenome":"carlos", 
+        "empresa":"Google ME", 
+        "pais":"Brasil", 
+        "endereco":"AV. Brasil", 
+        "numero":"89", 
+        "cidade":"São Paulo", 
+        "estado":"São Paulo", 
+        "cep":"01153-000"
+    },
+    {
+        "nome":"Marcos",
+        "sobrenome":"Oliveira", 
+        "empresa":"Loja EBAC", 
+        "pais":"Brasil", 
+        "endereco":"Brasil", 
+        "numero":"AV Saudade", 
+        "cidade":"Nova Odessa", 
+        "estado":"São Paulo", 
+        "cep":"0000-0000"
+    }
+]

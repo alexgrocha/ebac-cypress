@@ -1,0 +1,41 @@
+[
+    {
+        "nome":"Ana",
+        "sobrenome":"Silva", 
+        "empresa":"EBAC ME", 
+        "pais":"Brasil", 
+        "endereco":"Av. Paulista", 
+        "numero":"01", 
+        "cidade":"São Paulo", 
+        "estado":"São Paulo", 
+        "cep":"0000-0000", 
+        "telefone":"8888-8888", 
+        "email":"teste.100@teste.com"
+    },        
+    {
+        "nome":"Bruno",
+        "sobrenome":"carlos", 
+        "empresa":"Google ME", 
+        "pais":"Brasil", 
+        "endereco":"AV. Brasil", 
+        "numero":"89", 
+        "cidade":"Americana", 
+        "estado":"São Paulo", 
+        "cep":"0000-0000", 
+        "telefone":"7777-0000", 
+        "email":"t.9898@teste.com"
+    },
+    {
+        "nome":"Marcos",
+        "sobrenome":"Oliveira", 
+        "empresa":"Loja EBAC", 
+        "pais":"Brasil", 
+        "endereco":"Brasil", 
+        "numero":"AV Saudade", 
+        "cidade":"Nova Odessa", 
+        "estado":"São Paulo", 
+        "cep":"0000-0000", 
+        "telefone":"3333-4545", 
+        "email":"teste@teste.br"
+    }
+]

@@ -4,7 +4,15 @@
   "description": "Repositório para automação em cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":"echo \"Error: no test specified\" && exit 1",
+    "_comment1":"Criando um script para rodar todos os teste direto no chrome ou não",
+    "_comment2":"para rodar via terminal --> npm run cy:open",
+    "cy:run": "npx cypress run --browser chrome",
+    "cy:open": "npx cypress open",
+    
+    "_comment3":"após abrir o cypress via browser, para gerar o relatório, dos teste vamos rodar o comando",
+    "_comment4":"gerado pelo cypress, vamos rodar via scrupt",
+    "cy:report": "npx cypress run --record --key 2651e130-35d8-4219-b327-3ba4dd327dc9"
   },
   "repository": {
     "type": "git",

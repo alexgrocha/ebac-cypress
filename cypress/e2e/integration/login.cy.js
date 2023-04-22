@@ -8,6 +8,10 @@
 
 /// <reference types="cypress" />
 
+//const { it } = require("mocha");
+//esta configuração é para utilizar o parametro que esta em outras pasta, login
+//import { usuario, senha } from '..fixtures/perfil.json'; 
+
 describe('Funcionaliade Login', () => {
     // diminuindo a quantiddade de repetições, mesmo link utilizado em dois lugares
     // cenário ou rotina que roda antes de todos os cenários
@@ -22,6 +26,7 @@ describe('Funcionaliade Login', () => {
         cy.screenshot()
     });
     
+
     it('Deve fazer login com sucesso', () => { 
         cy.get('#username').type('aluno_ebac@teste.com')
         cy.get('#password').type('teste@teste.com')
