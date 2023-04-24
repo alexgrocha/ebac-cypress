@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 
+//adicioando configuração após visualizar o relatório no cypress
 module.exports = defineConfig({
   projectId: 'qayjir',
   e2e: {
