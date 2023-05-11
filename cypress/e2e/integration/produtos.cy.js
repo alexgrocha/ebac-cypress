@@ -10,13 +10,10 @@ describe('Funcionalidade página de produtos', () => {
         //se fosse uma id teria um 'jogo da velha' >> # <<
         //pode ser utilizado tbm cy.get('[class="product-block grid"]').first().click() ou id ou css por exemplo
         // para pegar o ultimos item last obs o last não esta funcionando
-        cy.get('.product-block grid')
-            //.last()
-            //.eq(3)
-            .contains('Abominable Hoodie')
-            .click()
+        cy.get('.post-2559 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
     });
-    it.only('deve adicionar um produto ao carrinho', () => {
+
+    it('deve adicionar um produto ao carrinho', () => {
         // adicionando uma variavel, para a quantidade de intes no carrinho
         // incluido apenas para o teste
         var quantidade = 3
